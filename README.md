@@ -4,6 +4,22 @@ A one-phone ledger for a home poker game. Track buy-ins and rebuys, what each pl
 
 No accounts, no server, no sync. Closing the app does not drop the current game.
 
+The hosted app is [https://velvetdash0.github.io/poker-night/](https://velvetdash0.github.io/poker-night/).
+
+## GitHub Pages
+
+Every push to `main` runs [`.github/workflows/pages.yml`](.github/workflows/pages.yml):
+
+1. `npm ci`
+2. `npm test`
+3. `npx expo export -p web`
+4. Copy `dist/index.html` to `dist/404.html` (so a missing path still loads the app) and add `dist/.nojekyll`
+5. Upload `dist` and deploy it with GitHub Pages
+
+The site is a project page, so it is served under `/poker-night`, not at the domain root. `experiments.baseUrl` in `app.json` is `/poker-night`, and the web manifest, icons, and bundle URLs use that prefix. `npx expo start --web` uses the same base path: open `http://localhost:8081/poker-night/`.
+
+The workflow calls `actions/configure-pages` with `enablement: true`, which tries to turn Pages on and set the source to GitHub Actions. That call needs a token that can administer the repository. The default `GITHUB_TOKEN` often cannot, and the job then fails before the deploy. If that happens, open the repo on GitHub, go to **Settings → Pages → Build and deployment**, and set **Source** to **GitHub Actions**. The next push deploys.
+
 ## Run it
 
 Install dependencies, then start Expo:
@@ -55,14 +71,14 @@ When the build finishes, open the build page from the link in the terminal and d
 
 ## Deploy the web app to Vercel
 
-`vercel.json` already sets the build command to `expo export -p web` and publishes the `dist` folder. From this directory:
+The export is set up for GitHub Pages at `/poker-night`. A Vercel site at the root of a domain will request assets from `/poker-night/...` and miss them. To host at a domain root, set `experiments.baseUrl` in `app.json` to `"/"` (and point the manifest `start_url`, `scope`, and icon URLs at `/`), then export again.
+
+`vercel.json` sets the build command to `expo export -p web` and publishes the `dist` folder:
 
 ```bash
 npm install -g vercel
 vercel
 ```
-
-Or connect the git repository in the Vercel dashboard and leave the framework preset empty. The config file supplies the build command, output directory, and the rewrite that serves the single-page app.
 
 ## Tests
 

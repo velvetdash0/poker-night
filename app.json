@@ -24,7 +24,19 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro",
-      "output": "single"
+      "output": "single",
+      "themeColor": "#5FCB86",
+      "backgroundColor": "#ffffff",
+      "lang": "en",
+      "shortName": "Poker Night",
+      "description": "Track buy-ins and settle up a home poker game.",
+      "display": "standalone",
+      "startUrl": "/poker-night/",
+      "scope": "/poker-night/",
+      "orientation": "portrait"
+    },
+    "experiments": {
+      "baseUrl": "/poker-night"
     },
     "plugins": [
       "expo-font"

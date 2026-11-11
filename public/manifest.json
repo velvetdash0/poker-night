@@ -1,0 +1,25 @@
+{
+  "name": "Poker Night",
+  "short_name": "Poker Night",
+  "description": "Track buy-ins and settle up a home poker game.",
+  "start_url": "/poker-night/",
+  "scope": "/poker-night/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#5FCB86",
+  "icons": [
+    {
+      "src": "/poker-night/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/poker-night/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
