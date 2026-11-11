@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Poker Night",
+    "slug": "poker-night",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pokernight.app"
+    },
+    "android": {
+      "package": "com.pokernight.app",
+      "softwareKeyboardLayoutMode": "resize",
+      "adaptiveIcon": {
+        "backgroundColor": "#E7F6EC",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single",
+      "themeColor": "#5FCB86",
+      "backgroundColor": "#ffffff",
+      "lang": "en",
+      "shortName": "Poker Night",
+      "description": "Track buy-ins and settle up a home poker game.",
+      "display": "standalone",
+      "startUrl": "/poker-night/",
+      "scope": "/poker-night/",
+      "orientation": "portrait"
+    },
+    "experiments": {
+      "baseUrl": "/poker-night"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
